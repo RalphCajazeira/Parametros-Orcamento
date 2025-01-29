@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parâmetros de Orçamento</title>
+    <link rel="stylesheet" href="styles/index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Parâmetros de Orçamento</h1>
+
+      <!-- Configuração: Prazo de Entrega -->
+      <div class="form-group">
+        <label for="prazoEntrega">Prazo de entrega (dias):</label>
+        <input type="number" id="prazoEntrega" placeholder="Ex: 10" />
+      </div>
+
+      <!-- Configuração: Tipo de Frete -->
+      <div class="form-group">
+        <label for="tipoFrete">Tipo de frete:</label>
+        <select id="tipoFrete">
+          <option value="FOB">FOB</option>
+          <option value="CIF">CIF</option>
+        </select>
+      </div>
+
+      <!-- Configuração: Filial -->
+      <div class="form-group">
+        <label for="filial">Filial:</label>
+        <select id="filial">
+          <option value="matriz">Matriz</option>
+          <option value="filial1">Filial 1</option>
+        </select>
+      </div>
+
+      <!-- Configuração: Validade de Proposta -->
+      <div class="form-group">
+        <label for="validadeProposta">Validade da proposta (dias):</label>
+        <input type="number" id="validadeProposta" placeholder="Ex: 30" />
+      </div>
+
+      <!-- Configuração: Lembrete -->
+      <div class="form-group">
+        <label for="lembrete">Lembrete:</label>
+        <div>
+          <input type="number" id="diasLembrete" placeholder="Dias" />
+          <select id="tipoLembrete">
+            <option value="apos">Após a criação do orçamento</option>
+            <option value="antes">Antes da validade da proposta</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Configuração: Plano de Pagamento -->
+      <div class="form-group">
+        <label for="planoPagamento">Plano de pagamento:</label>
+        <select id="planoPagamento">
+          <option value="avista">À Vista</option>
+          <option value="pix">PIX</option>
+          <option value="boleto">Boleto</option>
+        </select>
+      </div>
+
+      <!-- Configuração: Parâmetro de Despesas do Orçamento -->
+      <div class="form-group">
+        <label>Despesas do Orçamento:</label>
+        <div>
+          <input
+            type="text"
+            id="descricao"
+            placeholder="Descrição da despesa"
+          />
+          <select id="tipoCalculo">
+            <option value="%">%</option>
+            <option value="R$">R$</option>
+          </select>
+          <input type="number" id="valor" placeholder="Valor" />
+          <button onclick="adicionarDespesa()">Gerar despesa</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Descrição</th>
+              <th>Tipo Cálculo</th>
+              <th>Valor</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="listaDespesas">
+            <!-- As despesas adicionadas serão listadas aqui -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Configuração: Cálculo do Frete -->
+      <div class="form-group">
+        <h2>Cálculo do Frete</h2>
+        <div>
+          <input
+            type="text"
+            id="nomeFrete"
+            placeholder="Nome do tipo de frete"
+          />
+          <input
+            type="number"
+            id="quantidadeKm"
+            placeholder="Quantidade de km"
+          />
+          <input type="number" id="valorPorKm" placeholder="Valor por km" />
+          <button onclick="adicionarFrete()">Adicionar</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Padrão</th>
+              <th>Nome do tipo de frete</th>
+              <th>Quantidade de km</th>
+              <th>Valor por km</th>
+            </tr>
+          </thead>
+          <tbody id="listaFretes">
+            <!-- Os fretes adicionados serão listados aqui -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="scripts/scripts.js"></script>
+    <script src="scripts/despesas.js"></script>
+    <script src="scripts/frete.js"></script>
+  </body>
+</html>
