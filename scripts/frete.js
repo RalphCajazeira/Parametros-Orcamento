@@ -9,18 +9,24 @@ function adicionarFrete() {
   }
 
   const tabela = document.getElementById("listaFretes");
-  const linha = document.createElement("tr");
+  const linha = document.createElement("div");
 
   linha.innerHTML = `
-    <td><input type="radio" name="fretePadrao"></td>
-    <td>${nomeFrete}</td>
-    <td>${quantidadeKm}</td>
-    <td>R$ ${parseFloat(valorPorKm).toFixed(2)}</td>
+    <div>${nomeFrete}</div>
+    <div>${quantidadeKm} km</div>
+    <div>R$ ${parseFloat(valorPorKm).toFixed(2)}</div>
+    <button class="btn" onclick="removerFrete(this)">Excluir</button>
   `;
 
+  linha.className = "form-inline";
   tabela.appendChild(linha);
 
   document.getElementById("nomeFrete").value = "";
   document.getElementById("quantidadeKm").value = "";
   document.getElementById("valorPorKm").value = "";
+}
+
+function removerFrete(botao) {
+  const linha = botao.parentElement;
+  linha.remove();
 }

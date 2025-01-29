@@ -20,3 +20,18 @@ h2 {
   color: #021a37;
   margin-bottom: 20px;
 }
+
+footer {
+  text-align: center;
+
+  a {
+    display: inline-flex; 
+    align-items: center; 
+    gap: 8px;
+    background-color: #021a37;
+    border-radius: 999px;
+    color: white;
+    text-decoration: none;
+    padding: 2px 8px;
+  }
+}

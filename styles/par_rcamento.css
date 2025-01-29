@@ -2,38 +2,32 @@
   margin-bottom: 20px;
 }
 
+.form-inline {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
 input,
 select {
   width: 100%;
+  max-width: 300px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  flex: 1;
 }
 
 button {
   padding: 12px 20px;
   background: #021a37;
   color: #fff;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 button:hover {
   background: #03325b;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-table th,
-table td {
-  text-align: left;
-  padding: 10px;
-  border: 1px solid #ddd;
-}
-
-table th {
-  background-color: #f9f9f9;
 }

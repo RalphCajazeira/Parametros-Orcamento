@@ -9,19 +9,17 @@ function adicionarDespesa() {
   }
 
   const tabela = document.getElementById("listaDespesas");
-  const linha = document.createElement("tr");
+  const linha = document.createElement("div");
 
   linha.innerHTML = `
-    <td>${descricao}</td>
-    <td>${tipoCalculo}</td>
-    <td>${
+    <div>${descricao}</div>
+    <div>${
       tipoCalculo === "%" ? valor + "%" : "R$ " + parseFloat(valor).toFixed(2)
-    }</td>
-    <td>
-      <button class="delete-btn" onclick="removerDespesa(this)">Excluir</button>
-    </td>
+    }</div>
+    <button class="btn" onclick="removerDespesa(this)">Excluir</button>
   `;
 
+  linha.className = "form-inline";
   tabela.appendChild(linha);
 
   document.getElementById("descricao").value = "";
@@ -30,6 +28,6 @@ function adicionarDespesa() {
 }
 
 function removerDespesa(botao) {
-  const linha = botao.parentElement.parentElement;
+  const linha = botao.parentElement;
   linha.remove();
 }
